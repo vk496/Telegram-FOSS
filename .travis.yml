@@ -7,20 +7,22 @@ android:
     - tools
     - build-tools-28.0.3
     - android-28
-    - ndk-20.0.5594570
+    - ndk-bundle
     - cmake-3.6.4111459
-  licenses:
-    - ".+"
 before_script:
   - export NDK=$ANDROID_HOME/ndk-bundle
   - export NINJA_PATH=/usr/bin/ninja
   - echo "APP_ID = $APP_ID\nAPP_HASH = $APP_HASH" > API_KEYS
 script:
+  # If some stage fails, exit inmediatly
+  - set -e
+  # Prebuild
   - "cd TMessagesProj/jni"
   - "./build_ffmpeg_clang.sh"
   - "./patch_boringssl.sh"
   - "./build_boringssl.sh"
   - "cd ../.."
+  # Build
   - "./gradlew assembleAfatRelease"
 before_install:
 - sudo apt-get install ninja build-essential
