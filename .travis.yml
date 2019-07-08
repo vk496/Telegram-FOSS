@@ -31,3 +31,5 @@ script:
   - "cd ../.."
   # Build
   - "./gradlew assembleAfatRelease"
+  - ls -l
+  - find .
