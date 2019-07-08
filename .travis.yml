@@ -10,12 +10,11 @@ android:
 addons:
   apt_packages:
     - ninja
-    - build-essential
 
 install:
   - echo y | sdkmanager "ndk-bundle"
-  - echo y | sdkmanager "cmake;3.6.4111459"
-  - echo y | sdkmanager "lldb;3.1"
+  - echo y | sdkmanager "cmake"
+  - echo y | sdkmanager "lldb"
 before_script:
   - export NDK=$ANDROID_HOME/ndk-bundle
   - export NINJA_PATH=/usr/bin/ninja
