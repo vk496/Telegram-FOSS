@@ -7,12 +7,12 @@ android:
   - tools
   - build-tools-28.0.3
   - android-28
-install:
-  - echo y | sdkmanager "cmake;3.6.4111459"
-  - echo y | sdkmanager "lldb;3.1"
+  - ndk-bundle
+  - cmake-3.6.4111459
 before_script:
   - export NDK=$ANDROID_HOME/ndk-bundle
   - export NINJA_PATH=/usr/bin/ninja
+  - echo "APP_ID = $APP_ID\nAPP_HASH = $APP_HASH" > API_KEYS
 script:
 - "cd $TRAVIS_BUILD_DIR"
 - "cd TMessagesProj/jni"
