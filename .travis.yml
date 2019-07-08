@@ -9,7 +9,7 @@ android:
     - android-28
 addons:
   apt_packages:
-    - build-ninja
+    - ninja-build
 
 install:
   - echo y | sdkmanager "ndk-bundle"
