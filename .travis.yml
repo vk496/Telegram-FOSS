@@ -1,5 +1,5 @@
 language: android
-dist: xenial
+dist: trusty
 jdk:
   - openjdk8
 android:
@@ -10,10 +10,11 @@ android:
 addons:
   apt_packages:
     - ninja
+    - cmake
 
 install:
   - echo y | sdkmanager "ndk-bundle"
-  
+
 before_script:
   - export NDK=$ANDROID_HOME/ndk-bundle
   - export NINJA_PATH=/usr/bin/ninja
