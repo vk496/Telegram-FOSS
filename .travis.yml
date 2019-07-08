@@ -7,8 +7,15 @@ android:
     - tools
     - build-tools-28.0.3
     - android-28
-    - ndk-bundle
-    - cmake-3.6.4111459
+addons:
+  apt_packages:
+    - ninja
+    - build-essential
+
+install:
+  - echo y | sdkmanager "ndk-bundle"
+  - echo y | sdkmanager "cmake;3.6.4111459"
+  - echo y | sdkmanager "lldb;3.1"
 before_script:
   - export NDK=$ANDROID_HOME/ndk-bundle
   - export NINJA_PATH=/usr/bin/ninja
@@ -24,5 +31,3 @@ script:
   - "cd ../.."
   # Build
   - "./gradlew assembleAfatRelease"
-before_install:
-- sudo apt-get install ninja build-essential
