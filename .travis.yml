@@ -25,6 +25,7 @@ script:
   - set -e
   # Prebuild
   - "cd TMessagesProj/jni"
+  - "./patch_ffmpeg.sh"
   - "./build_ffmpeg_clang.sh"
   - "./patch_boringssl.sh"
   - "./build_boringssl.sh"
